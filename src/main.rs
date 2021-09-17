@@ -2,7 +2,9 @@ use std::io;
 use rand::Rng;
 
 struct Parrot {
-    known_frazes: Vec<String>,
+    name: String,
+    famous_frazes: Vec<String>,
+//    live: bool,
 }
 
 impl Parrot {
@@ -15,8 +17,16 @@ impl Parrot {
                 .read_line(&mut ans)
                 .expect("Failed to read line!");
            
-            let ans_copy = ans;
-            self.known_frazes.push(ans_copy);
+//            if ans == String::from("quit") {
+//                self.live = false;
+//            } else {
+                let ans_copy = ans;
+                self.famous_frazes.push(ans_copy);
+//            }
+
+//            if !self.live {
+//                break;
+//            }
 
             let mut ans = String::new();
 
@@ -24,21 +34,31 @@ impl Parrot {
             io::stdin()
                 .read_line(&mut ans)
                 .expect("Failed to read line!");
-
-            println!("But parrot interrupt you:");
-            println!("- {}", self.known_frazes[rand::thread_rng().gen_range(0..self.known_frazes.len() - 1)]);
+           
+            println!("But {} interrupt you:", self.name);
+            println!("- {}", self.famous_frazes[rand::thread_rng().gen_range(0..self.famous_frazes.len())]);
         }
     }
 }
                 
 
 fn main() {
+    let mut ans = String::new();
+
+    println!("Give a name to your parrot:");
+    io::stdin()
+        .read_line(&mut ans)
+        .expect("Failed to read line!");
+
     let mut parrot = Parrot {
-        known_frazes: Vec::new(),
+        name: ans,
+        famous_frazes: Vec::new(),
+//        live: true,
     };
 
-    parrot.known_frazes.push(String::from("Hello!"));
-    parrot.known_frazes.push(String::from("Goodbay!"));
+    parrot.famous_frazes.push(String::from("Hello!"));
+    parrot.famous_frazes.push(String::from("Goodbay!"));
 
     parrot.live();
 }
+

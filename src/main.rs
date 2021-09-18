@@ -52,12 +52,9 @@ fn main() {
 
     let mut parrot = Parrot {
         name: ans,
-        famous_frazes: Vec::new(),
+        famous_frazes: vec![String::from("Hello!"), String::from("Goodbay!")], 
 //        live: true,
     };
-
-    parrot.famous_frazes.push(String::from("Hello!"));
-    parrot.famous_frazes.push(String::from("Goodbay!"));
 
     parrot.live();
 }

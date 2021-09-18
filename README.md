@@ -18,7 +18,7 @@ To build project you need to have installed **Cargo Project Manager** on your de
 git clone https://github.com/shrug228/Parrot.git
 cd Parrot
 ```
-**P.S.:** *if you don't have installed git on your PC, you can just download .ZIP archive of this repository to your PC, unarchive it and run the command under this text*.
+P.S.: *if you don't have installed git on your PC, you can just download .ZIP archive of this repository to your PC, unarchive it and run the command under this text*.
 ```
 cargo build --release
 ```
